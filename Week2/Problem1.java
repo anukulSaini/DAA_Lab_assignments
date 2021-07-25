@@ -44,6 +44,9 @@ public class Problem1 {
 	  static int upper(int[] arr,int l,int r,int x,int n){
 	        if(l<=r){
 	        int mid = (l+r)/2;
+	        if(mid ==l) {
+	        	return l;
+	        }
 	        if( arr[mid]==x  && arr[mid-1]!=x){
 	            return mid;
 	        }
