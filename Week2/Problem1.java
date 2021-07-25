@@ -8,20 +8,25 @@ public class Problem1 {
 		// TODO Auto-generated method stub
 
 		Scanner sc = new Scanner(System.in);
-		System.out.println("Enter array size --> ");
-		int n = sc.nextInt();
-		System.out.println("Enter "+n+ " sorted elements  --> ");
-		int[] arr= new int[n];
-		for(int i=0;i<n;i++) {
-			arr[i]=sc.nextInt();
+		System.out.println("Number of test case ");
+		int t=sc.nextInt();
+		for(int tc=0;tc<t;t--) {
+			System.out.println("Enter array size --> ");
+			int n = sc.nextInt();
+			System.out.println("Enter "+n+ " sorted elements  --> ");
+			int[] arr= new int[n];
+			for(int i=0;i<n;i++) {
+				arr[i]=sc.nextInt();
+			}
+			System.out.println("no.? --> ");
+			int s= sc.nextInt();
+			int ans = binarysearch(arr,0,n-1,s);
+			if(ans==-1) 
+				System.out.println("Not Present");
+			else
+			    System.out.println(s+ " Present  "+ (lower(arr,0,n-1,s,arr.length-1)-upper(arr,0,n-1,s,arr.length-1)+1));
+			
 		}
-		System.out.println("no.? --> ");
-		int s= sc.nextInt();
-		int ans = binarysearch(arr,0,n-1,s);
-		if(ans==-1) 
-			System.out.println("Not Present");
-		else
-		    System.out.println(s+ " Present  "+ (lower(arr,0,n-1,s,arr.length-1)-upper(arr,0,n-1,s,arr.length-1)+1));
 		
 	}
 	static int binarysearch(int[] nums,int l,int r,int target){
@@ -58,7 +63,10 @@ public class Problem1 {
 	  static int lower(int[] arr,int l,int r,int x,int n){
 	        if(r>=l){
 	        int mid = (l+r)/2;
-	        if(arr[mid]==x && arr[mid+1]!=x){
+	        if(mid ==r) {
+	        	return r;
+	        }
+	        else if(arr[mid]==x && arr[mid+1]!=x){
 	            return mid;
 	        }
 	        else if(arr[mid]==x && arr[mid+1]==x) {
