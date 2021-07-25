@@ -20,7 +20,10 @@ public class Problem2 {
 			}	
 		
         int[] result = findSequence(arr);
-    	System.out.println(Arrays.toString(result));
+        if(result[0]==0 && result[2]==0) 
+        	System.out.println("Match Not Found");
+        else
+    	    System.out.println(Arrays.toString(result));
     	}
 
 	}
@@ -39,20 +42,21 @@ public class Problem2 {
 	 
 	 static int[] findSequence(int[] arr) {
 		 int k=0;
+		 int[] ans = new int[3];
 		 boolean stop = false;
 		 for(int i=0; (i<arr.length) && !stop;i++) {
 			 for(int j=i; (j<arr.length)  && !stop;j++) {
 				 int res= arr[i]+arr[j];
 				  k= binarysearch(arr,j,arr.length-1,res);
 				 if(k!=-1) {
-					 arr[0]=i;
-					 arr[1]=j;
-					 arr[2]=k;
+					 ans[0]=i;
+					 ans[1]=j;
+					 ans[2]=k;
 					 stop=true;
 				 }
 			 }
 		 }
-		 return new int[] {arr[0],arr[1],arr[2]};
+		 return new int[] {ans[0],ans[1],ans[2]};
 	 }
 
 }
