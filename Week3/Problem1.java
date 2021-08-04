@@ -42,8 +42,8 @@ public class Problem1 {
 		for(int j:arr)
 			System.out.print(j+" ");
 		System.out.println();
-		System.out.println("Shift "+shift);
-		System.out.println("Comparision "+comp);
+		System.out.println("Shifts "+shift);
+		System.out.println("Comparisions "+comp);
 		
 	}
 }
